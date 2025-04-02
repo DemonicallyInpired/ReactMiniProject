@@ -20,6 +20,10 @@ const StateSelector = (props) => {
     const fetchData = async () => {
       const getCountries = endPoints[GET_COUNTRIES];
       const resp = await fetch(getCountries());
+      if (resp.status >= 400 && resp.status <= 599) {
+        console.error(resp.message);
+        return;
+      }
       const countries = await resp.json();
       setCountriesData((prevState) => {
         return {
@@ -36,6 +40,10 @@ const StateSelector = (props) => {
         countriesRef.current = event.target.value;
         const getState = endPoints[GET_STATES];
         const resp = await fetch(getState(countriesRef.current));
+        if (resp.status >= 400 && resp.status <= 599) {
+          console.error(resp.message);
+          return;
+        }
         const newState = await resp.json();
         setCountriesData((prevState) => {
           return {
@@ -52,6 +60,10 @@ const StateSelector = (props) => {
         const resp = await fetch(
           getCities(countriesRef.current, stateRef.current)
         );
+        if (resp.status >= 400 && resp.status <= 599) {
+          console.error(resp.message);
+          return;
+        }
         const newCities = await resp.json();
         setCountriesData((prevState) => {
           return {

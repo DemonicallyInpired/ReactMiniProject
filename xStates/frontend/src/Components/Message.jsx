@@ -3,7 +3,7 @@ const Message = ({ allRef }) => {
   if (!isValidated) {
     return null;
   }
-  const msg = allRef.map((item, index) => {
+  const msg = allRef.reverse().map((item, index) => {
     return (
       <span
         style={{
@@ -12,7 +12,7 @@ const Message = ({ allRef }) => {
         }}
         key={`${item}-${index}`}
       >
-        {item.concat(", ")}
+        {index !== allRef.length - 1 ? item.concat(", ") : item}
       </span>
     );
   });
@@ -20,7 +20,7 @@ const Message = ({ allRef }) => {
     <div
       style={{ fontWeight: "bold", fontSize: "1.5rem", textAlign: "center" }}
     >
-      <p>You have Selected , {msg}</p>
+      <p>You selected {msg}</p>
     </div>
   );
 };
