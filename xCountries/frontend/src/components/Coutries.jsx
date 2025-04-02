@@ -17,7 +17,7 @@ const Countries = () => {
           return countries;
         });
       } catch (err) {
-        console.error(`error fetching data: ${err}`);
+        console.error(`Error fetching data: `);
       }
     };
     fetchCountries();
