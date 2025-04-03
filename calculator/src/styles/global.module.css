@@ -1,0 +1,22 @@
+.appContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.calculatorParent{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.5rem;
+}
+.targetBtn{
+    padding : 0.8rem;
+    cursor: pointer;
+}
+@media screen and (min-width : 420px){
+    .targetBtn {
+        padding: 1rem;
+    }
+}
