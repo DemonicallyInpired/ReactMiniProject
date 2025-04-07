@@ -1,0 +1,69 @@
+$breakpoint-xs : 0px;
+$breakpoint-sm : 600px;
+$breakpoint-md : 900px;
+$breakpoint-lg : 1200px;
+$breakpoint-xl : 1536px;
+
+
+@mixin tablet {
+  @media (min-width : #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+* {
+  padding: 0rem;
+  margin: 0rem;
+}
+
+body {
+  background-color: var(--mui-palette-primary-main);
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.5rem;
+  color: var(--mui-palette-primary-contrastText);
+}
+
+button::hover {
+  filter: brightness(0.5);
+}
+
+.budgetForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app__summary {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--mui-palette-primary-light);
+  border-radius: 10px;
+  min-height: 25vh;
+
+  .app__wallet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--mui-palette-secondary-main);
+  }
+}
+
+@include tablet {
+  .app__summary {
+    flex-direction: row;
+
+    .app__wallet {
+      width: 25%;
+    }
+  }
+}
