@@ -58,6 +58,17 @@ button::hover {
   }
 }
 
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 @include tablet {
   .app__summary {
     flex-direction: row;

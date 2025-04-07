@@ -67,7 +67,7 @@ export default function WalletSummary() {
       <Box className="app__summary">
         <Wallet walletType={ADD_BALANCE} />
         <Wallet walletType={ADD_EXPENSE} />
-        <ExpenseSummaryPieChart data={currData} />
+        {expense.total ? <ExpenseSummaryPieChart data={currData} /> : null}
       </Box>
       <Box>
         <TargetModals open={balanceOpen} target={ADD_BALANCE}>

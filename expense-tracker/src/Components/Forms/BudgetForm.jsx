@@ -27,6 +27,7 @@ export default function BudgetForm() {
         <CustomTextField
           name="balance"
           label="Income Amount"
+          placeholder="Income Amount"
           type="number"
           varaint="outlined"
         />

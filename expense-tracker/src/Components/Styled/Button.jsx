@@ -39,6 +39,8 @@ const StyledButton = styled("button")(({ variant, size }) => {
     justifyContent: "center",
     alignItems: "center",
     fontWeight: "bold",
+    textWrap: "nowrap",
+    textAlign: "center",
   };
 });
 export default StyledButton;

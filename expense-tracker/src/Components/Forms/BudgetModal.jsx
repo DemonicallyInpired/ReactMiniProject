@@ -18,6 +18,11 @@ export default function TargetModals({ open, target, children }) {
         slotProps={{
           backdrop: {
             timeout: 500,
+            sx: {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              backdropFilter: "blur(15px)",
+              WebkitBackdropFilter: "blur(15px)",
+            },
           },
         }}
         closeAfterTransition

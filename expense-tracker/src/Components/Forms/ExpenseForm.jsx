@@ -85,7 +85,12 @@ const ExpenseForm = () => {
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
-            <StyledButton type="submit" variant="warning" size="small">
+            <StyledButton
+              sx={{ width: "100%" }}
+              type="submit"
+              variant="warning"
+              size="small"
+            >
               Add Expense
             </StyledButton>
           </Grid>
@@ -94,6 +99,7 @@ const ExpenseForm = () => {
             <StyledButton
               size="small"
               type="button"
+              sx={{ width: "100%" }}
               onClick={() =>
                 updateModalState({ modalOps: "close", target: ADD_EXPENSE })
               }

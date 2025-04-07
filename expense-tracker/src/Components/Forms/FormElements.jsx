@@ -4,7 +4,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
-
 export const CustomTextField = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
@@ -13,6 +12,7 @@ export const CustomTextField = ({ label, ...props }) => {
       helperText={meta.touched && meta.error ? meta.error : ""}
       error={Boolean(meta.touched && meta.error)}
       label={label}
+      fullWidth
       {...props}
       {...field}
     />
@@ -31,10 +31,14 @@ export const CustomCategory = ({ children, label, ...props }) => {
       }}
       label={label}
       helperText={meta.touched && meta.error ? meta.error : ""}
+      fullWidth
       error={Boolean(meta.touched && meta.error)}
       {...props}
       {...field}
     >
+      <option key="defaultvalue-key" value="">
+        Select Category
+      </option>
       {[...children].map((item) => (
         <option key={item.props.value} value={item.props.value}>
           {item.props.value}
@@ -62,6 +66,8 @@ export const CustomDate = ({ label, ...props }) => {
             textField: {
               error: Boolean(meta.touched && meta.error),
               helperText: meta.touched && meta.error ? meta.error : "",
+              size: "small",
+              fullWidth: true,
             },
           }}
           {...props}

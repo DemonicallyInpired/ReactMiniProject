@@ -19,7 +19,7 @@ const WalletRenderer = ({ type }) => {
           </>
         ) : (
           <>
-            Expense:{" "}
+            Expenses:{" "}
             <span style={{ color: orange[500], fontWeight: "bold" }}>
               &#8377;{expense.total}
             </span>
@@ -34,7 +34,7 @@ const WalletRenderer = ({ type }) => {
           variant="balance"
           size="small"
         >
-          +Add Expense
+          + Add Income
         </StyledButton>
       ) : (
         <StyledButton
@@ -44,7 +44,7 @@ const WalletRenderer = ({ type }) => {
           variant="expense"
           size="small"
         >
-          +Add Expense
+          + Add Expense
         </StyledButton>
       )}
     </Box>
