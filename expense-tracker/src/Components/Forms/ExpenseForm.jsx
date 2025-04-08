@@ -24,7 +24,7 @@ const ExpenseForm = () => {
       setExpense((prevExpense) => {
         return {
           ...prevExpense,
-          [category]: [...prevExpense[category], values],
+          expense: [values, ...prevExpense["expense"]],
           [`${category}Total`]: prevExpense[`${category}Total`] + price,
           total: prevExpense["total"] + price,
         };
@@ -41,7 +41,7 @@ const ExpenseForm = () => {
         title: "",
         price: "",
         category: "",
-        date: dayjs().format("YYYY-MM-DD"),
+        date: dayjs().toISOString(),
       }}
       validationSchema={expenseValidationSchema}
       onSubmit={handleSubmit}
@@ -74,9 +74,9 @@ const ExpenseForm = () => {
               variant="outlined"
               size="small"
             >
-              <option value="travel">Travel</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Food">Food</option>
             </CustomCategory>
           </Grid>
 

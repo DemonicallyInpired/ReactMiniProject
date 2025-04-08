@@ -10,9 +10,6 @@ const App = () => {
         <Box>
           <Heading>Expense Tracker</Heading>
           <WalletSummary />
-          <Box className="app__transaction_section">
-            <SubHeading>Recent Transactions</SubHeading>
-          </Box>
         </Box>
       </ThemeProvider>
     </SnackbarProvider>

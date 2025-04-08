@@ -58,6 +58,62 @@ button::hover {
   }
 }
 
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0.5rem;
+
+  .content {
+    display: flex;
+    gap: 1rem;
+  }
+
+  div {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* font-size: 1.5rem; */
+    /* width: 60%; */
+
+    .details,
+    span {
+      color: var(--mui-palette-primary-main);
+      font-weight: medium;
+    }
+
+    svg {
+      fill: #fefefe;
+      background-color: var(--mui-palette-primary-main);
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    font-size: 1.5rem;
+
+    div {
+      button {
+        appearance: none;
+        border: none;
+        padding: 0px;
+        background-color: inherit;
+
+        svg {
+          font-size: 1.5rem;
+          background-color: inherit;
+          fill: #000;
+        }
+      }
+    }
+  }
+
+}
+
 input[type="number"] {
   appearance: none;
   -moz-appearance: textfield;
@@ -76,5 +132,9 @@ input[type="number"]::-webkit-outer-spin-button {
     .app__wallet {
       width: 25%;
     }
+  }
+
+  .list-item {
+    flex-direction: row;
   }
 }

@@ -57,7 +57,10 @@ export const CustomDate = ({ label, ...props }) => {
       <Box id="date-picker">
         <DatePicker
           label={label}
-          value={field.value ? dayjs(field.value) : null}
+          format="YYYY-MM-DD"
+          value={
+            field.value ? dayjs(field.value, { format: "YYYY-MM-DD" }) : null
+          }
           onChange={(val) => {
             const formatted = val ? val.format("YYYY-MM-DD") : "";
             setFieldValue(field.name, formatted);

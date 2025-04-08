@@ -8,16 +8,17 @@ import TargetModals from "../Forms/BudgetModal";
 import BudgetForm from "../Forms/BudgetForm";
 import ExpenseForm from "../Forms/ExpenseForm";
 import ExpenseSummaryPieChart from "../Charts/Pie";
+import { Grid } from "@mui/material";
+import TransactionList from "../Transactions/Transactions";
+import ExpenseBar from "../Charts/Bar";
 
 export default function WalletSummary() {
   const [balance, setBalance] = useState(5000);
   const [expense, setExpense] = useState({
-    entertainment: [],
-    food: [],
-    travel: [],
-    entertainmentTotal: 0,
-    foodTotal: 0,
-    travelTotal: 0,
+    expense: [],
+    EntertainmentTotal: 0,
+    FoodTotal: 0,
+    TravelTotal: 0,
     total: 0,
   });
 
@@ -53,13 +54,14 @@ export default function WalletSummary() {
     const data = [];
     for (let key of Object.keys(expense)) {
       const pattern = /total/i;
-      if (!key.match(pattern)) {
+      if (key.match(pattern) && key != "total") {
         data.push({
-          name: key,
-          value: expense[`${key}Total`],
+          name: key.replace(pattern, ""),
+          value: expense[key],
         });
       }
     }
+    console.log("data", data);
     return data;
   }, [expense, balance]);
   return (
@@ -77,6 +79,18 @@ export default function WalletSummary() {
           <ExpenseForm />
         </TargetModals>
       </Box>
+
+      <Grid sx={{ marginTop: "1rem", padding: "1rem" }} container spacing={4}>
+        <TransactionList />
+        <Grid
+          sx={{
+            minHeight: "30vh",
+          }}
+          size={{ xs: 12, md: 4.8 }}
+        >
+          <ExpenseBar data={currData} />
+        </Grid>
+      </Grid>
     </DataContext.Provider>
   );
 }
