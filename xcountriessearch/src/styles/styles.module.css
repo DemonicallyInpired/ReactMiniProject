@@ -1,0 +1,88 @@
+* {
+  margin: 0rem;
+  padding: 0rem;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fefefe;
+  box-shadow: 0px 5px 15px #222;
+  margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.header_search input {
+  appearance: none;
+  border: 1px solid grey;
+  width: 80%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  outline: none;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1rem;
+  column-gap: 1rem;
+  padding: 1rem;
+}
+.countryCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  height: 80%;
+  border: 1px solid #222;
+  padding: 0.5rem;
+  border-radius: 5px;
+  overflow-y: clip;
+}
+.countryCard img {
+  width: 80%;
+  height: 60%;
+}
+.countryCard h2 {
+  margin: 0.5rem 0rem;
+}
+.no_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+@media screen and (min-width: 0px) {
+  #content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (min-width: 420px) {
+  #content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header_search input {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 640px) {
+  #content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header_search input {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  #content {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
