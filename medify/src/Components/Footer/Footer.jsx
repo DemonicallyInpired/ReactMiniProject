@@ -1,3 +1,7 @@
+import { Box, useTheme } from "@mui/material";
+
 export default function Footer() {
-  return <div>Footer</div>;
+  const theme = useTheme();
+  console.log(theme.typography.fontFamily);
+  return <Box>Footer</Box>;
 }

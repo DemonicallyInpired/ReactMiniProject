@@ -1,12 +1,12 @@
-import "./globals.module.css";
 import { RouterProvider } from "react-router-dom";
-import routes from "./utils/routes";
-import { ThemeProvider } from "@mui/material";
-import themeObject from "./utils/ThemeObject";
+import { routes } from "./utils/routes";
+import themeObject from "./utils/themeObject";
+import { ThemeProvider } from "@emotion/react";
+
 export default function App() {
   return (
     <ThemeProvider theme={themeObject}>
-      <RouterProvider router={routes} />
+      <RouterProvider router={routes} />;
     </ThemeProvider>
   );
 }

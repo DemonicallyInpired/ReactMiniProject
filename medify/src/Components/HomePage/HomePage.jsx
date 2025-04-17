@@ -1,12 +1,6 @@
-import Hero from "../Hero/Hero";
-import OfferCarousel from "../OfferCarousel/OfferCarousel";
-import Specialisations from "../Specialisation/Specialisations";
+import { Box } from "@mui/material";
+import { useTheme } from "@mui/material";
 export default function HomePage() {
-  return (
-    <div>
-      <Hero />
-      <OfferCarousel />
-      <Specialisations nItems={8} />
-    </div>
-  );
+  const theme = useTheme();
+  return <Box>HomePage</Box>;
 }

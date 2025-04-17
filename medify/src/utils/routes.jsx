@@ -1,21 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout, HomePage, Bookings } from "../Components";
+import { Bookings, HomePage, Search } from "../Components";
+import Layout from "../layout";
 
-const routes = createBrowserRouter([
+export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       {
         path: "/",
-        element: <HomePage />,
         index: true,
+        element: <HomePage />,
       },
       {
         path: "/my-bookings",
         element: <Bookings />,
       },
+      {
+        path: "/search",
+        element: <Search />,
+      },
     ],
   },
 ]);
-export default routes;

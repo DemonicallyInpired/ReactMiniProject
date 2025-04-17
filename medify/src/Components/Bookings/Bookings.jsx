@@ -1,3 +1,5 @@
+import { Box } from "@mui/material";
+
 export default function Bookings() {
-  return <div>Bookings</div>;
+  return <Box>Bookings</Box>;
 }
