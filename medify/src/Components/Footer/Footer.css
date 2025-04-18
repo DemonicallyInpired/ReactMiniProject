@@ -1,0 +1,5 @@
+@media screen and (max-width: 600px) {
+  .navLinks:nth-of-type(4n) {
+    background-color: red !important;
+  }
+}

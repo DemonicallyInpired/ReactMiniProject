@@ -6,7 +6,7 @@ import { ThemeProvider } from "@emotion/react";
 export default function App() {
   return (
     <ThemeProvider theme={themeObject}>
-      <RouterProvider router={routes} />;
+      <RouterProvider router={routes} />
     </ThemeProvider>
   );
 }

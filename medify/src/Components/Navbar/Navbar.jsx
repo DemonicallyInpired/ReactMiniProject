@@ -67,6 +67,7 @@ const Navbar = () => {
             right: 0,
             top: 0,
             padding: !largeScreenBreakpoint ? "4rem 1rem 0rem" : "0rem",
+            zIndex: 100,
           }}
         >
           {navItems.map((item, index) => (
@@ -101,6 +102,7 @@ const Navbar = () => {
             position: !toggled ? "static" : "fixed",
             top: 10,
             right: 10,
+            zIndex: 200,
           }}
           variant="transparent"
           onClick={handleToggle}

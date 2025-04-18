@@ -38,7 +38,6 @@ let themeObject = createTheme({
           fontWeight: "700",
         },
         h2: {
-          color: "#1B3C74",
           fontSize: "3rem",
           fontWeight: "600",
         },
@@ -51,6 +50,23 @@ let themeObject = createTheme({
           fontWeight: 300,
           fontSize: "1.25rem",
         },
+
+        variants: [
+          {
+            props: (props) =>
+              props.variant === "h2" && props.color === "primary",
+            style: {
+              color: "#2AA7EE",
+            },
+          },
+          {
+            props: (props) =>
+              props.variant === "h2" && props.color === "secondary",
+            style: {
+              color: "#1B3C74",
+            },
+          },
+        ],
       },
     },
   },
@@ -72,6 +88,21 @@ themeObject = createTheme(themeObject, {
         h3: {
           [themeObject.breakpoints.down("sm")]: {
             fontSize: "1.5rem",
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          // Chrome, Safari, Edge
+          "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+            WebkitAppearance: "none",
+            margin: 0,
+          },
+          // Firefox
+          "&[type=number]": {
+            MozAppearance: "textfield",
           },
         },
       },

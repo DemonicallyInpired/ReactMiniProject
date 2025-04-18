@@ -1,0 +1,22 @@
+:root {
+  --swiper-pagination-bottom: 0px;
+}
+.swiper-pagination-bullet {
+  position: relative;
+  padding: 0.25rem;
+  background: none;
+  border: 4px solid #2aa7ff;
+}
+.swiper-slide {
+  height: 30vh;
+}
+.swiper-pagination-bullet::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: #2aa7ff;
+  border-radius: 50%;
+  top: 25%;
+  right: 25%;
+}
