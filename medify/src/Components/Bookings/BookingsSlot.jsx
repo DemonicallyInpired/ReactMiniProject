@@ -217,6 +217,7 @@ export default function BookingSlots({ details, isvisible }) {
                 justifyContent: "space-evenly",
                 gap: "2rem",
                 marginTop: "1rem",
+                flexDirection: { xs: "column", md: "row" },
               }}
             >
               <TextField

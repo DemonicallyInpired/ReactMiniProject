@@ -14,28 +14,36 @@ export default function HospitalDetailCard({ details, isBooking }) {
         backgroundColor: "white",
         boxShadow: "0px 0px 5px #222",
         padding: "2rem 0rem",
-        Width: "100%",
-        margin: "4rem",
         textAlign: { xs: "center", md: "left" },
+        maxWidth: "100%",
+        margin: "2rem 0rem",
+        marginLeft: "1rem",
       }}
-      size={{ xs: 12, md: 11 }}
-      overflow={"clip"}
+      size={12}
     >
-      <Box
+      <Grid
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "100%",
           padding: "0.5rem",
           margin: "auto",
         }}
+        size={{ xs: 12 }}
       >
         <Stack
           direction={{ xs: "column", md: "row" }}
           alignItems="center"
           width={"100%"}
         >
-          <img src="/assets/hospitalicon.png" alt="hospital-logo-image" />
+          <Box
+            component="img"
+            src="/assets/hospitalicon.png"
+            alt="hospital-logo-image"
+            sx={{
+              width: { xs: "30%", md: "10%" },
+              height: { xs: "30%", md: "10%" },
+            }}
+          />
           <Stack
             sx={{
               padding: "1rem",
@@ -161,7 +169,7 @@ export default function HospitalDetailCard({ details, isBooking }) {
             </Box>
           ) : null}
         </Stack>
-      </Box>
+      </Grid>
       {!isBooking ? (
         <Grid
           sx={{ margin: "auto" }}

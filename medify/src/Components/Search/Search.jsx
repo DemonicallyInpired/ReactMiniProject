@@ -101,7 +101,7 @@ export default function Search({
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              <Typography color="primary" variant="h2">
+              <Typography color="primary" variant="h1">
                 My Bookings
               </Typography>
               <TextField
@@ -127,6 +127,7 @@ export default function Search({
                       <SearchIcon />
                     </InputAdornment>
                   }
+                  required
                 >
                   <MenuItem value="">
                     <em>Select State</em>
@@ -150,6 +151,7 @@ export default function Search({
                   }
                   displayEmpty
                   onChange={handleCityChange}
+                  required
                 >
                   <MenuItem value="">
                     <em>Select Cities</em>

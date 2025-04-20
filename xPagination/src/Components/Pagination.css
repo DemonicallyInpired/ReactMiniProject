@@ -1,0 +1,23 @@
+.pagination-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 20%;
+  margin-top: 1rem;
+  position: absolute;
+  top: 90%;
+  left: 40%;
+}
+.pagination-controls button {
+  appearance: none;
+  background-color: lightgreen;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+.pagination-controls button:disabled {
+  opacity: 0.5;
+}

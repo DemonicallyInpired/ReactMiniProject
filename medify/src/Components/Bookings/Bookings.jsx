@@ -51,7 +51,7 @@ export default function Bookings() {
             return (
               <Grid
                 sx={{
-                  width: "70%",
+                  width: { xs: "90%", md: "60%" },
                 }}
                 spacing={4}
                 key={`booking-item-${index}`}
@@ -64,14 +64,14 @@ export default function Bookings() {
 
         {filtered.length && (
           <Grid
+            className="image-content"
             sx={{
-              position: "relative",
-              height: "30vh",
-              width: "100%",
               backgroundImage: "url('/assets/cta.png')",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "contain",
+              minHeight: "20vh",
+              marginLeft: "1.4rem",
             }}
             size={{ xs: 12, md: 3 }}
           ></Grid>
