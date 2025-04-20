@@ -1,8 +1,9 @@
-import { Grid, Typography, Stack, Button, useMediaQuery } from "@mui/material";
+import { Grid, Typography, Stack, Button } from "@mui/material";
 import Search from "../Search/Search.jsx";
 import AlternateBox from "../AlternateBox/AlternateBox";
+import { Link as MuiLink } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 export default function Hero() {
-  const media = useMediaQuery("(max-width : 600px)");
   return (
     <AlternateBox sx={{ paddingBottom: "1rem" }}>
       <Grid
@@ -33,7 +34,14 @@ export default function Hero() {
               a particular doctor.
             </Typography>
             <Button sx={{ width: "fit-content" }} variant="contained">
-              Find Center
+              <MuiLink
+                color="#fff"
+                underline="none"
+                component={RouterLink}
+                to="/search"
+              >
+                Find Center
+              </MuiLink>
             </Button>
           </Stack>
         </Grid>

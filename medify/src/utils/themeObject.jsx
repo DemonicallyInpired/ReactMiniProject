@@ -34,11 +34,11 @@ let themeObject = createTheme({
       styleOverrides: {
         h1: {
           color: "#000",
-          fontSize: "3.5rem",
+          fontSize: "2rem",
           fontWeight: "700",
         },
         h2: {
-          fontSize: "3rem",
+          fontSize: "2.5rem",
           fontWeight: "600",
         },
         h3: {
@@ -125,6 +125,20 @@ themeObject = createTheme(themeObject, {
               style: {
                 backgroundColor: "none",
                 color: "#fefefe",
+              },
+            },
+            {
+              props: (props) =>
+                props.variant === "outlined" && props.color === "green",
+              style: {
+                color: "green",
+              },
+            },
+            {
+              props: (props) =>
+                props.variant === "outlined" && props.color === "primary",
+              style: {
+                color: themeObject.palette.primary.main,
               },
             },
             {

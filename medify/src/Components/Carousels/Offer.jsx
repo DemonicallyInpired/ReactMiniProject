@@ -10,7 +10,6 @@ const getData = () => {
   const res = Array.from({ length: 10 }, (item, index) => {
     return arr[index % arr.length];
   });
-  console.log("res", res);
   return res;
 };
 export default function Offers() {
@@ -21,7 +20,7 @@ export default function Offers() {
         {data.map((item, index) => (
           <SwiperSlide key={`offerSlider-${index}`}>
             <img
-              style={{ width: "100%", height: "80%" }}
+              style={{ width: "100%", height: "70%" }}
               src={item}
               alt={`offerSlider-${index}`}
             />

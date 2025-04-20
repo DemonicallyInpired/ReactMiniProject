@@ -1,5 +1,11 @@
-import { GET_CITIES, GET_STATE, SET_CITIES, SET_STATE } from "./constants";
-import { fetchCities, fetchState } from "./Ops";
+import {
+  GET_CITIES,
+  GET_STATE,
+  SET_CITIES,
+  SET_STATE,
+  GET_HOSPITALS,
+} from "./constants";
+import { fetchCities, fetchHospitals, fetchState } from "./Ops";
 export default function useFetch() {
   return async (setterFunc, ops, state = "", city = "") => {
     switch (ops) {
@@ -31,6 +37,14 @@ export default function useFetch() {
           return;
         }
         setterFunc(() => state);
+        break;
+      }
+      case GET_HOSPITALS: {
+        const data = await fetchHospitals(state, city);
+        if (Object.is(data, null)) {
+          return;
+        }
+        setterFunc(() => data);
         break;
       }
       default: {

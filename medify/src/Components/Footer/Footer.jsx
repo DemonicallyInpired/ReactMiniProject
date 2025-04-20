@@ -63,14 +63,14 @@ export default function Footer() {
               height: "100%",
               justifyContent: "space-between",
               flexDirection: "column",
-              alignItems: { xs: "center", md: "flex-start" },
             }}
           >
             <Box
               component="img"
               src="/assets/logo.png"
-              height={64}
-              width={128}
+              height={41}
+              width={138}
+              marginBottom="0.5rem"
             />
             <Box
               sx={{

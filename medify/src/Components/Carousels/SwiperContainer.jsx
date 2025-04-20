@@ -3,7 +3,7 @@ import { Pagination, Navigation, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-export default function SwiperContainer({ children }) {
+export default function SwiperContainer({ children, ...rest }) {
   return (
     <Swiper
       modules={[Navigation, Pagination, A11y]}
@@ -24,6 +24,7 @@ export default function SwiperContainer({ children }) {
           slidesPerView: 4,
         },
       }}
+      {...rest}
     >
       {children}
     </Swiper>

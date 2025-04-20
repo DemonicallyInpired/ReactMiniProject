@@ -1,0 +1,11 @@
+.transition-fade {
+  transition:
+    opacity 0.8s ease,
+    visibilty 0.8s ease;
+  opacity: 1;
+  visibility: visible;
+}
+.transition-fade-hidden {
+  opacity: 0;
+  visibility: hidden;
+}

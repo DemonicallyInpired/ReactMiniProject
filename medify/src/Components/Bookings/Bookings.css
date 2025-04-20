@@ -1,0 +1,43 @@
+.swiper,
+.swiper-slide,
+.swiper-wrapper {
+  z-index: 0 !important;
+}
+.slider-stack {
+  transition: all 0.5s ease-in;
+}
+.swiper-wrapper {
+  /* height: 20vh; */
+  z-index: 50;
+}
+.swiper-button-next::after {
+  content: "";
+  position: absolute;
+  background-image: url("/assets/next.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #2aa7ff;
+  border-radius: 50%;
+  right: 0%;
+  top: 90%;
+}
+
+.swiper-button-prev::after {
+  content: "";
+  position: absolute;
+  background-image: url("/assets/prev.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 90%;
+  left: 0;
+
+  border: 2px solid #2aa7ff;
+  border-radius: 50%;
+}

@@ -5,7 +5,8 @@ import {
   Button,
   Link as MuiLink,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import "./Navbar.css";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import AlternateBox from "../AlternateBox/AlternateBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -23,6 +24,8 @@ const navItems = [
 const Navbar = () => {
   const largeScreenBreakpoint = useMediaQuery("(min-width : 1200px)");
   const [toggled, setToggled] = useState(false);
+  const location = useLocation();
+  const isSearchPage = location.pathname === "/search";
   const handleToggle = () => {
     setToggled(!toggled);
   };
@@ -35,8 +38,9 @@ const Navbar = () => {
           justifyContent: "space-between",
           alignItems: "center",
           padding: "1rem",
-          maxWidth: "90vw",
+          maxWidth: !isSearchPage ? "100vw" : "90vw",
           margin: "auto",
+          backgroundColor: !isSearchPage ? "#fefefe" : "inherit",
         }}
       >
         <Box>
@@ -45,19 +49,21 @@ const Navbar = () => {
           </RouterLink>
         </Box>
         <Box
+          className={
+            !largeScreenBreakpoint && toggled
+              ? "transition-fade"
+              : largeScreenBreakpoint
+              ? "transition-fade"
+              : "transition-fade-hidden "
+          }
           sx={{
             width: "80%",
-            display:
-              !largeScreenBreakpoint && toggled
-                ? "flex"
-                : largeScreenBreakpoint
-                  ? "flex"
-                  : "none",
+            display: "flex",
             justifyContent: !largeScreenBreakpoint
               ? "flex-start"
               : "space-between",
             alignItems: !largeScreenBreakpoint ? "flex-start" : "center",
-            gap: !largeScreenBreakpoint ? "4rem" : "auto",
+            gap: !largeScreenBreakpoint ? "1rem" : "0rem",
             position: !largeScreenBreakpoint ? "fixed" : "static",
             flexDirection: !largeScreenBreakpoint ? "column" : "row",
             height: !largeScreenBreakpoint ? "100vh" : "fit-content",
@@ -71,25 +77,31 @@ const Navbar = () => {
           }}
         >
           {navItems.map((item, index) => (
-            <Typography key={`navItems-${index}`} component="span">
+            <Typography
+              className="navbarLinks"
+              key={`navItems-${index}`}
+              component="span"
+            >
               <MuiLink
                 component={RouterLink}
-                to="#"
+                to={item === "Hospital" ? "/search" : "#"}
                 variant={
                   !largeScreenBreakpoint && toggled ? "primary" : "secondary"
                 }
                 underline="none"
+                onClick={handleToggle}
               >
                 {item}
               </MuiLink>
             </Typography>
           ))}
-          <Button variant="contained">
+          <Button className="navbarLinks" variant="contained">
             <MuiLink
               component={RouterLink}
               to="/my-bookings"
               variant="primary"
               underline="none"
+              onClick={handleToggle}
             >
               My Bookings
             </MuiLink>
@@ -107,6 +119,7 @@ const Navbar = () => {
           variant="transparent"
           onClick={handleToggle}
           color={toggled ? "secondary" : "primary"}
+          disableRipple={true}
         >
           {toggled ? <CloseIcon /> : <MenuIcon />}
         </Button>
