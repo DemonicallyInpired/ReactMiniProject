@@ -6,6 +6,7 @@ import "./Table.css";
 export default function Table({ nPageItem }) {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,12 +16,12 @@ export default function Table({ nPageItem }) {
             headers: {
               "Content-Type": "application/json",
             },
-          }
+          },
         );
         const consumeableResponse = response.data;
         setData(consumeableResponse);
       } catch (err) {
-        console.error(err.stack);
+        window.alert("failed to fetch data");
         return null;
       }
     };
@@ -44,7 +45,7 @@ export default function Table({ nPageItem }) {
           {data
             .slice(
               nPageItem * page,
-              Math.min(data.length, nPageItem * (page + 1))
+              Math.min(data.length, nPageItem * (page + 1)),
             )
             .map((item, index) => {
               return (

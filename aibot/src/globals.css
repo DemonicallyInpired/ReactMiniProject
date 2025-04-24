@@ -1,0 +1,22 @@
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: slategray #9785ba;
+} */
+.app__homePage {
+  overflow-x: hidden;
+}
+.app__homePage::-webkit-scrollbar {
+  width: 1em;
+}
+
+.app__homePage::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.app__homePage::-webkit-scrollbar-thumb {
+  background-color: #9785ba;
+  outline: 1px solid slategrey;
+}
+body::-webkit-scrollbar {
+  width: 0rem;
+}
