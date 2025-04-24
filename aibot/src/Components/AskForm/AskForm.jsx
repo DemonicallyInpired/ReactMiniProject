@@ -15,14 +15,18 @@ export default function AskForm({ setData, currentData, setcurrentData }) {
     event.preventDefault();
     const res = getResponse(question);
 
-    setData((prevData) => [...prevData, ...res]);
+    setData((prevData) => {
+      return [...prevData, ...res];
+    });
     setQuestion(() => "");
-    setcurrentData((prevData) => [...prevData, ...res]);
+    setcurrentData((prevData) => {
+      return [...prevData, ...res];
+    });
   };
   const handleSyncLocalStorage = (event) => {
     event.preventDefault();
     const currData = localStorage.getItem("conversations");
-    if (Object.is(currData, null)) {
+    if (Object.is(currData, null) && currentData.length > 0) {
       localStorage.setItem("conversations", JSON.stringify(currentData));
     } else if (currentData.length > 0 && !Object.is(currData, null)) {
       localStorage.setItem(
@@ -49,13 +53,16 @@ export default function AskForm({ setData, currentData, setcurrentData }) {
       }}
       onSubmit={handleFormSubmit}
     >
-      <FormControl sx={{ width: { xs: "100%", sm: "80%" } }}>
+      <FormControl
+        sx={{
+          width: { xs: "100%", sm: "80%" },
+        }}
+      >
         <TextField
           variant="filled"
           name="bot-search"
           inputProps={{ id: "bot-search" }}
-          placeholder="Message Bot AI…"
-          sx={{ backgroundColor: "#fefefe" }}
+          placeholder="Message Bot AI..."
           onChange={handleChange}
           value={question}
           required

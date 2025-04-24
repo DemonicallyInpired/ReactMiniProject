@@ -6,7 +6,7 @@ import Modal from "react-modal";
 import { Form } from "react-router-dom";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import CloseIcon from "@mui/icons-material/Close";
-
+import { useTheme } from "@mui/material";
 const customStyles = {
   content: {
     top: "50%",
@@ -25,7 +25,7 @@ export default function Message({ setData, setcurrentdata, data }) {
   const [feedback, setFeedBack] = useState("");
   const [ratings, setRatings] = useState(0);
   const [showRatings, setShowRatings] = useState(false);
-
+  const currTheme = useTheme();
   const handleShowLikes = () => {
     setShow(true);
   };
@@ -143,17 +143,25 @@ export default function Message({ setData, setcurrentdata, data }) {
       </Paper>
       <Modal
         isOpen={modalOpen}
-        style={customStyles}
+        style={{
+          ...customStyles,
+          content: {
+            ...customStyles.content,
+            backgroundColor:
+              currTheme.palette.mode === "light" ? "#fff" : "#333",
+          },
+        }}
         onRequestClose={handleModalClose}
         shouldCloseOnEsc={true}
       >
         <Form onSubmit={handleModalSubmit}>
           <Box
-            sx={{
+            sx={(theme) => ({
               display: "flex",
               flexDirection: "column",
               gap: "1rem",
-            }}
+              bgcolor: theme.palette.mode === "light" ? "#fff" : "#333",
+            })}
           >
             <Box
               sx={{
@@ -162,8 +170,17 @@ export default function Message({ setData, setcurrentdata, data }) {
                 justifyContent: "space-between",
               }}
             >
-              <LightbulbIcon />
-              <CloseIcon onClick={handleModalClose} />
+              <LightbulbIcon
+                sx={(theme) => ({
+                  color: theme.palette.mode === "light" ? "#000" : "#fff",
+                })}
+              />
+              <CloseIcon
+                sx={(theme) => ({
+                  color: theme.palette.mode === "light" ? "#000" : "#fff",
+                })}
+                onClick={handleModalClose}
+              />
             </Box>
             <Box>
               <Typography
@@ -172,7 +189,12 @@ export default function Message({ setData, setcurrentdata, data }) {
                 width={"100%"}
                 value={feedback}
                 onChange={handleFeedBack}
-                sx={{ textTransform: "none", outline: "none" }}
+                sx={(theme) => ({
+                  textTransform: "none",
+                  outline: "none",
+                  bgcolor: theme.palette.mode === "light" ? "#fff" : "#333",
+                  color: theme.palette.mode === "light" ? "#333" : "#fff",
+                })}
                 required
               />
             </Box>

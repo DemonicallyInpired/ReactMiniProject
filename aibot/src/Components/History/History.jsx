@@ -2,12 +2,14 @@ import { Avatar, Paper, Box, Typography, Rating } from "@mui/material";
 import { useState, useEffect, useMemo } from "react";
 export default function History() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const currData = localStorage.getItem("conversations");
     if (!Object.is(currData, null)) {
       setData(() => JSON.parse(currData));
     }
   }, []);
+
   const tuplePair = useMemo(() => {
     const res = [];
     data.forEach((item, index) => {
@@ -17,24 +19,32 @@ export default function History() {
     });
     return res;
   }, [data]);
+
   return data.length === 0 ? (
-    <Box>No Converstations Yet</Box>
+    <Box
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    >
+      No Converstations Yet
+    </Box>
   ) : (
     <Box
       sx={{
         padding: "1rem",
+        maxHeight: "100vh",
       }}
     >
-      <Typography variant="h3">Conversation History</Typography>
-
+      <Box sx={{ fontSize: "2rem" }}>Past Conversations</Box>
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
           maxHeight: "70vh",
-          overflow: "scroll",
+          // overflowY: "scroll",
+          // overflowX: "hidden",
+          marginTop: "1rem",
         }}
+        className="homePage__scrollbar"
       >
         {tuplePair.map((item, index) => {
           return (
@@ -79,7 +89,7 @@ export default function History() {
                           alt={`${type}-pic`}
                         />
                         <Box>
-                          <Typography component="span">
+                          <Typography fontWeight="bold" component="span">
                             {type === "AI" ? "Soul AI" : "You"}
                           </Typography>
                           <Typography variant="body1">
@@ -111,7 +121,6 @@ export default function History() {
                       </Box>
                     );
                   }
-                  return <Box></Box>;
                 })}
             </Paper>
           );

@@ -1,14 +1,30 @@
-import { Box, Typography, Avatar, useMediaQuery, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Avatar,
+  useMediaQuery,
+  Button,
+  useTheme,
+  Checkbox,
+} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as MuiLink } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { useContext } from "react";
-import { ResetContext, ToggleContext } from "../../../utils/contexts";
+import {
+  ResetContext,
+  ThemeToggleContext,
+  ToggleContext,
+} from "../../../utils/contexts";
+import { ThemeContext } from "@emotion/react";
+import ToggleButton from "./ToggleButton";
 export default function Navbar() {
   const currSize = useMediaQuery("(min-width: 900px)");
   const { setToggle } = useContext(ToggleContext);
+  const { toggled, setToggled } = useContext(ThemeToggleContext);
   const { setReset } = useContext(ResetContext);
+  const currTheme = useTheme(ThemeContext);
   const handleToggle = () => {
     setToggle((prevToggle) => !prevToggle);
   };
@@ -24,7 +40,9 @@ export default function Navbar() {
         width: "100%",
         height: "10vh",
         position: "fixed",
-        backgroundColor: "#fefefe",
+        zIndex: 1200,
+        backgroundColor:
+          currTheme.palette.mode === "light" ? "#fefefe" : "#3C3C3C",
         top: 0,
         left: 0,
       }}
@@ -36,7 +54,7 @@ export default function Navbar() {
           alignItems: "center",
           bgcolor: "background.primary",
           padding: "0.5rem",
-          width: "15%",
+          width: { xs: "20%", lg: "15%" },
           justifyContent: "space-around",
           height: "100%",
         }}
@@ -67,10 +85,18 @@ export default function Navbar() {
       >
         <MenuIcon />
       </Button>
-      <Box>
-        <Typography variant="h5" fontWeight="bold" color="primary">
-          Bot Ai
+      <header>
+        <Typography
+          fontSize={"2rem"}
+          variant="h1"
+          fontWeight="bold"
+          color="primary"
+        >
+          Bot AI
         </Typography>
+      </header>
+      <Box>
+        <ToggleButton toggled={toggled} setToggle={setToggled} />
       </Box>
     </Box>
   );

@@ -19,10 +19,9 @@ export default function HomePage() {
   return (
     <Box
       sx={{
-        height: "100%",
+        maxHeight: "70vh",
         padding: "1rem",
-        maxHeight: data.length > 0 ? "80vh" : "inherit",
-        overflow: "scroll",
+        overflowY: "scroll",
       }}
       className="app__homePage"
     >
@@ -96,7 +95,7 @@ export default function HomePage() {
           display: "flex",
           justifyContent: "center",
           marginLeft: { xs: "-1rem", sm: "0rem" },
-          zIndex: 500,
+          zIndex: 50,
           height: "18%",
         }}
       >

@@ -1,4 +1,4 @@
-import { Stack, Box, Button, Typography } from "@mui/material";
+import { Stack, Box, Button, Typography, useTheme } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import { useEffect, useContext } from "react";
 import { ResetContext, ToggleContext } from "../../../utils/contexts";
@@ -6,10 +6,12 @@ import { Link as MuiLink } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
+import { ThemeContext } from "@emotion/react";
 export default function SideBar() {
   const currSize = useMediaQuery("(min-width : 900px)");
   const { toggle, setToggle } = useContext(ToggleContext);
   const { setReset } = useContext(ResetContext);
+  const currTheme = useTheme(ThemeContext);
   const handleClose = () => {
     setToggle((prevToggle) => !prevToggle);
   };
@@ -27,7 +29,8 @@ export default function SideBar() {
         display: currSize ? "block" : toggle ? "block" : "none",
         width: { md: "15vw", xs: "60vw" },
         padding: "0.5rem",
-        backgroundColor: "#fefefe",
+        backgroundColor:
+          currTheme.palette.mode === "light" ? "#fefefe" : "#3C3C3C",
         height: "100%",
         position: "fixed",
         left: 0,
@@ -53,7 +56,7 @@ export default function SideBar() {
                   color: "primary.contrastText",
                 }}
               >
-                Past Converstations
+                Past Conversations
               </Button>
             </MuiLink>
             {!currSize && (

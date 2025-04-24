@@ -4,7 +4,7 @@ export default function HelperCard({ question, setData, setcurrentData }) {
   const handleClick = () => {
     const currData = getResponse(question);
     setData((prevData) => [...currData, ...prevData]);
-    setcurrentData((prevData) => [...currData, prevData]);
+    setcurrentData((prevData) => [...currData, ...prevData]);
   };
   return (
     <Paper elevation={10}>

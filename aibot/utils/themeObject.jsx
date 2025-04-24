@@ -8,11 +8,11 @@ const getTheme = (mode) => {
       primary: {
         main: "#9785BA",
         light: "#AF9FCD",
-        contrastText: mode === "light" ? "#3C3C3C" : "#FEFEFE",
+        contrastText: "#3C3C3C",
       },
       secondary: {
         main: "#D7C7F4",
-        contrastText: mode === "light" ? "#3C3C3C" : "#FEFEFE",
+        contrastText: "#3C3C3C",
       },
       background: {
         primary: "#9785BA",
