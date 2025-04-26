@@ -1,0 +1,21 @@
+#formContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+#formContainer form input {
+  margin-right: 1rem;
+  min-width: 20%;
+}
+#formContainer p {
+  margin-top: 1rem;
+  color: #333;
+}
+.weather-cards {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
