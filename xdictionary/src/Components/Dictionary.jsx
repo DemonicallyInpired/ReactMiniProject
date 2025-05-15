@@ -39,7 +39,11 @@ export default function Dictionary() {
         <button type="submit">Search</button>
       </form>
       <h3>Definition:</h3>
-      {definition.length > 0 ? <p>{definition[0].meaning}</p> : null}
+      {definition.length > 0 ? (
+        <p>{definition[0].meaning}</p>
+      ) : (
+        <p>Word not found in the dictionary.</p>
+      )}
     </>
   );
 }
